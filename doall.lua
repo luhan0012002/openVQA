@@ -11,7 +11,6 @@ local model = require 'model'
 local Train = require 'train'
 local Utils = require 'utils'
 local GenerateAns = require 'generateAns'
--- test git
 -- hyper-parameters 
 batchSize = 64
 rho = 34 -- sequence length
