@@ -24,7 +24,7 @@ end
 function getData.getBatchFc7(ds, indices, start_idx, end_idx)
     local fc7_path = '../fc7'
     local img_id = torch.LongTensor()
-    img_id = img_id:cuda()
+    --img_id = img_id:cuda()
     img_id:index(ds.img_id, 1, indices:sub(start_idx, end_idx))
     local fc7 = {}
     for i = 1,img_id:size(1) do
@@ -34,14 +34,14 @@ function getData.getBatchFc7(ds, indices, start_idx, end_idx)
         table.insert(fc7,feature:t())
     end
     local net = nn.JoinTable(1)
-    net = net:cuda()
+    --net = net:cuda()
     return net:forward(fc7)
 end
 
 function getData.getBatchConv4(ds, indices, start_idx, end_idx)               
     local conv_path = '../conv'                           
     local img_id = torch.LongTensor()                                              
-    img_id = img_id:cuda()                                                         
+    --img_id = img_id:cuda()                                                         
     img_id:index(ds.img_id, 1, indices:sub(start_idx, end_idx))                    
     local conv4 = {}                                                               
     for i = 1,img_id:size(1) do                                                    
@@ -59,9 +59,8 @@ function getData.getBatchConv4(ds, indices, start_idx, end_idx)
         --feature = nn.Reshape(1,rho,196,512):forward(feature)                     
         --print(torch.all(feature[{1,1,14,{}}]:eq(tmp))) for checking correctly reshape
         table.insert(conv4, feature)                                            
-    end                                                                         
-    conv4 = nn.JoinTable(1):cuda():forward(conv4)                                     
-    return conv4                                                                
+    end                                                                                                              
+    return nn.JoinTable(1):forward(conv4)                                                                
 end 
 
 function getData.read(split, rho)
@@ -108,54 +107,44 @@ function getData.read(split, rho)
     for i, img in ipairs(tableJson['images']) do
         if img['split'] == split then
             for j, qa_pair in ipairs(img['qa_pairs']) do
+                --source: question
                 ques = {}
                 for w in qa_pair['question']:gmatch("[^%s$]+")  do
-                    table.insert(ques, wtoi[w])
-                end
-                for k, multiple_choice in ipairs(qa_pair['multiple_choices']) do
-                    dat = copy(ques)
-                    --dat = ques
-                    for w in multiple_choice:gmatch("[^%s$]+")  do
-                        if wtoi[w] == nil then
-                            table.insert(dat, wtoi['UNK'])
-                        else    
-                            table.insert(dat, wtoi[w])
-                        end
-                        if #dat >= rho then
-                            break
-                        end
-                    end
-                    for i = #dat+1, rho do
-                        table.insert(dat, 1, 0)
-                    end
-                    table.insert(input, dat)
-                    table.insert(target, 1)
-                    table.insert(img_id, tonumber(img["image_id"]))
-                    tmp, _ = string.gsub(qa_pair['question'], "%s(%p)", "%1")
-                    table.insert(question, tmp)
-                    tmp, _ = string.gsub(multiple_choice, "%s(%p)", "%1")
-                    table.insert(choices, tmp)
-                    table.insert(qa_id, tonumber(qa_pair["qa_id"]))
-                end
-                dat = copy(ques)
-                for w in qa_pair['answer']:gmatch("[^%s$]+")  do
                     if wtoi[w] == nil then
                         table.insert(dat, wtoi['UNK'])
                     else    
                         table.insert(dat, wtoi[w])
                     end
-                    if #dat >= rho then
+                    -- cut of if question is longer than rho
+                    if #ques >= rho then
                         break
                     end
-                    if #dat > max_len then
-                        max_len = #dat
+                end
+
+                --padding
+                for i = #ques+1, rho do
+                    table.insert(ques, 1, 0)
+                end
+
+                --target: answer
+                ans = {}
+                for w in qa_pair['answer']:gmatch("[^%s$]+")  do
+                    if wtoi[w] == nil then
+                        table.insert(ans, wtoi['UNK'])
+                    else    
+                        table.insert(ans, wtoi[w])
+                    end
+                    -- cut of if answer is longer than rho
+                    if #ans >= rho then
+                        break
                     end
                 end
-                for i = #dat+1, rho do
+                --padding
+                for i = #ans+1, rho do
                     table.insert(dat, 1, 0)
                 end
-                table.insert(input, dat)
-                table.insert(target, 2)
+                table.insert(input, ques)
+                table.insert(target, ans)
                 table.insert(img_id, tonumber(img["image_id"]))
                 tmp, _ = string.gsub(qa_pair['question'], "%s(%p)", "%1")
                 table.insert(question, tmp)
@@ -175,6 +164,7 @@ function getData.read(split, rho)
     ds.choices = choices
     --end
     --print(tablesize(itow))
+    print(ds)
     return ds
 end
 

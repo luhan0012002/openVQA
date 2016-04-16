@@ -34,23 +34,29 @@ cmd:option('-train', 1, '1 or 0')
 cmd:option('-pretrained_model', '', 'pretrained model path')
 cmd:option('-model', './', 'output model path')
 cmd:option('-ans_path', '', 'ans path')
-cmd:option('-Att','ReLU', 'ReLU, noActivation, or Stanford')
+cmd:option('-Att','ReLU', 'ReLU, noActivation, or AttStanford')
 cmd:option('-gpu', '1', 'gpu device id')
 opt = cmd:parse(arg)
 cutorch.setDevice(opt.gpu)
 -- load model --
-local protos
+local protos = {}
 if path.exists(opt.pretrained_model) then
     print(string.format("Loading model from %s...", opt.pretrained_model))
     protos = torch.load(opt.pretrained_model)
 else
     print(string.format("Initializing model..."))
-    protos = model.buildModel(opt.Att)
-    protos.lstm = protos.lstm:cuda()
-    protos.wordEmbed = protos.wordEmbed:cuda()
-    protos.imageEmbed = protos.imageEmbed:cuda()
-    protos.classify = protos.classify:cuda()
-    protos.attention = protos.attention:cuda()
+    local encoder = model.buildEncoder(opt.Att)
+    local decoder = model.buildDecoder()
+
+    for k, v in pairs(encoder) do
+        v = v:cuda()
+    end
+    for k, v in pairs(decoder) do 
+        v = v:cuda()
+    end
+
+    protos.encoder = encoder
+    protos.decoder = decoder
 end
 
 if opt.train == 1 then
