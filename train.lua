@@ -33,7 +33,7 @@ function Train.encode_forward(clones, protos, inputs, batchSize, encoderOutputs)
 	encoderOutputs = {ht_e, ct_e, rt_e, wordEmbed_e, imageEmbed_e}
 end
 
-function Train.decode_forward(clones, inputs, batchSize, batchSize, decoderOutputs, encoderOutputs)
+function Train.decode_forward(clones, inputs, batchSize, decoderOutputs, encoderOutputs)
 	-- inputs: {words, fc7, conv4, targets}
 	-- encoderOutputs = {ht_e, ct_e, rt_e, wordEmbed_e, imageEmbed_e}
 	ht_d = {}
@@ -41,11 +41,14 @@ function Train.decode_forward(clones, inputs, batchSize, batchSize, decoderOutpu
 	output_d = {}
 	lt_d = {}
 	wordEmbed_d = {}
+	local err = 0
 	table.insert(wordEmbed_d, clones['decoder']['wordEmbed'][1]:forward(inputs[4]:select(2,1)))
-	local tmp = clones['decode']['lstm'][1]:forward({wordEmbed_e[1], torch.CudaTensor(batchSize, hiddenSize):fill(0), encoderOutputs[1][rho]})
+	local tmp = clones['decode']['lstm'][1]:forward({wordEmbed_d[1], torch.CudaTensor(batchSize, hiddenSize):fill(0), encoderOutputs[1][rho]})
 	table.insert(ht_d, tmp[1])
 	table.insert(ct_d, tmp[2])
-	local err = 0
+	table.insert(output_d, clones['decoder']['sample'][t]:forward({wordEmbed_d[1], ht_d[1], ct[1]})
+	table.insert(loss, clones['decoder']['criterion']:forward(output_d[1], targets:select(2,2)))
+	err = err + loss[1]
 	for t = 2, rho do
 		table.insert(wordEmbed_d, clones['decoder']['wordEmbed'][t]:forward(targets:select(2,t)))
 		--table.insert(rt, clones['attention'][t]:forward({ht[t-1], conv4}))
@@ -78,12 +81,14 @@ function Train.decode_backward(clones, inputs, enc_outputs, dec_outputs, prevGra
 	-- enc_outputs {ht_e, ct_e, rt_e, wordEmbed_e, imageEmbed_e}
 	-- dec_outputs {ht_d, ct_d, wordEmbed_d, loss, output_d}
 	for t = rho, 2, -1 do	
-		local prevGradInput = clones['lstm'][t]:backward({outputs[3][t], outputs[1][t], outputs[2][t]}, {prevGradInput[2], prevGradInput[3]})
+		local gradOutput = clones['decoder']['criterion']:backward(inputs[5][t], inputs[4][t])
+		local prevGradInput = clones['decoder'][sample]:backward({dec_outputs[3][t], dec_outputs[1][t], dec_outputs[2][t]}, gradOutput)	
+		local prevGradInput = clones['lstm'][t]:backward({dec_outputs[3][t], dec_outputs[1][t], dec_outputs[2][t]}, {prevGradInput[2], prevGradInput[3]})
 		clones['decoder']['wordEmbed'][t]:backward(targets:select(2,t), prevGradInput)
 	end
 	local gradOutput = clones['decoder']['criterion']:backward(inputs[5][1], inputs[4][1])
-	local prevGradInput = clones['decoder'][sample]:backward({outputs[3][1], outputs[1][1], outputs[2][1]}, gradOutput)	
-	local prevGradInput = clones['lstm'][t]:backward({outputs[3][1], enc_outputs[3][rho], torch.CudaTensor(batchSize, hiddenSize):fill(0)}, {prevGradInput[2], prevGradInput[3]})
+	local prevGradInput = clones['decoder'][sample]:backward({dec_outputs[3][1], dec_outputs[1][1], dec_outputs[2][1]}, gradOutput)	
+	local prevGradInput = clones['lstm'][t]:backward({dec_outputs[3][1], enc_outputs[1][rho], torch.CudaTensor(batchSize, hiddenSize):fill(0)}, {prevGradInput[2], prevGradInput[3]})
 	clones['decoder']['wordEmbed'][t]:backward(targets:select(2,t), prevGradInput)
 
 	return prevGradInput
@@ -95,7 +100,7 @@ function Train.foward(clones, inputs, outputs)
 	outputs.decoderOutputs = {}
 	Train.encode_forward(clones, inputs, batchSize, outputs.encoderOutputs)
 	err = Train.decode_forward(clones, inputs, batchSize, forward_outputs.encoderOutputs, outputs.decoderOutputs)
-
+	return err 
 end
 
 function Train.backward(clones, inputs, outputs)
