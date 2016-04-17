@@ -20,20 +20,24 @@ function Train.encode_forward(clones, protos, inputs, batchSize, encoderOutputs)
 	wordEmbed_e = {}
 	imageEmbed_e = protos.encoder.imageEmbed:forward(inputs[2])
 	table.insert(rt_e, clones['encoder']['attention'][1]:forward({torch.CudaTensor(batchSize, hiddenSize):fill(0), inputs[3]}))
-	local tmp = clones['encoder']['lstm'][1]:forward({imageEmbed, torch.CudaTensor(batchSize, hiddenSize):fill(0), torch.CudaTensor(batchSize, hiddenSize):fill(0), rt_e[1]})
+	local tmp = clones['encoder']['lstm'][1]:forward({imageEmbed_e, torch.CudaTensor(batchSize, hiddenSize):fill(0), torch.CudaTensor(batchSize, hiddenSize):fill(0), rt_e[1]})
 	table.insert(ht_e, tmp[1])
 	table.insert(ct_e, tmp[2])
 	for t = 2, rho+1 do
 		table.insert(wordEmbed_e, clones['encoder']['wordEmbed'][t-1]:forward(inputs[1]:select(2,t-1)))
-		table.insert(rt_e, clones['encoder']['attention'][t]:forward({ht[t-1], inputs[3]}))
+		table.insert(rt_e, clones['encoder']['attention'][t]:forward({ht_e[t-1], inputs[3]}))
 		local tmp = clones['encoder']['lstm'][t]:forward({wordEmbed_e[t-1], ht_e[t-1], ct_e[t-1], rt_e[t]})
 		table.insert(ht_e, tmp[1])
 		table.insert(ct_e, tmp[2])
 	end 
-	encoderOutputs = {ht_e, ct_e, rt_e, wordEmbed_e, imageEmbed_e}
+	table.insert(encoderOutputs, ht_e)
+    table.insert(encoderOutputs, ct_e)
+    table.insert(encoderOutputs, rt_e)
+    table.insert(encoderOutputs, wordEmbed_e)
+    table.insert(encoderOutputs, imageEmbed_e)
 end
 
-function Train.decode_forward(clones, inputs, batchSize, decoderOutputs, encoderOutputs)
+function Train.decode_forward(clones, inputs, batchSize, encoderOutputs, decoderOutputs)
 	-- inputs: {words, fc7, conv4, targets}
 	-- encoderOutputs = {ht_e, ct_e, rt_e, wordEmbed_e, imageEmbed_e}
 	ht_d = {}
@@ -41,21 +45,25 @@ function Train.decode_forward(clones, inputs, batchSize, decoderOutputs, encoder
 	output_d = {}
 	lt_d = {}
 	wordEmbed_d = {}
+    loss = {}
 	local err = 0
 	table.insert(wordEmbed_d, clones['decoder']['wordEmbed'][1]:forward(inputs[4]:select(2,1)))
-	local tmp = clones['decode']['lstm'][1]:forward({wordEmbed_d[1], torch.CudaTensor(batchSize, hiddenSize):fill(0), encoderOutputs[1][rho]})
+	local tmp = clones['decoder']['lstm'][1]:forward({wordEmbed_d[1], torch.CudaTensor(batchSize, hiddenSize):fill(0), encoderOutputs[1][rho+1]})
 	table.insert(ht_d, tmp[1])
 	table.insert(ct_d, tmp[2])
-	table.insert(output_d, clones['decoder']['sample'][t]:forward({wordEmbed_d[1], ht_d[1], ct[1]})
-	table.insert(loss, clones['decoder']['criterion']:forward(output_d[1], targets:select(2,2)))
-	err = err + loss[1]
+	table.insert(output_d, clones['decoder']['sample'][1]:forward({wordEmbed_d[1], ht_d[1], ct_d[1]}))
+	table.insert(loss, clones['decoder']['criterion'][1]:forward(output_d[1], inputs[4]:select(2,2)))
+	print(inputs[4]:select(2,2))
+    print(clones['decoder']['criterion'][1]:forward(output_d[1], inputs[4]:select(2,2)))
+    print(loss)
+    err = err + loss[1]
 	for t = 2, rho do
 		table.insert(wordEmbed_d, clones['decoder']['wordEmbed'][t]:forward(targets:select(2,t)))
 		--table.insert(rt, clones['attention'][t]:forward({ht[t-1], conv4}))
 		local tmp = clones['decode']['lstm'][t]:forward({wordEmbed[t], ht[t], ct[t]})
 		table.insert(ht_d, tmp[1])
 		table.insert(ct_d, tmp[2])
-		table.insert(output_d, clones['decoder']['sample'][t]:forward({wordEmbed_d[t], ht_d[t], ct[t]})
+		table.insert(output_d, clones['decoder']['sample'][t]:forward({wordEmbed_d[t], ht_d[t], ct_d[t]}))
 		table.insert(loss, clones['decoder']['criterion']:forward(output_d[t], targets:select(2,t+1)))
 		err = err + loss[t]
 	end 
@@ -95,11 +103,11 @@ function Train.decode_backward(clones, inputs, enc_outputs, dec_outputs, prevGra
 
 end
 
-function Train.foward(clones, inputs, outputs)
-	outputs.encoderOutputs = {}
-	outputs.decoderOutputs = {}
-	Train.encode_forward(clones, inputs, batchSize, outputs.encoderOutputs)
-	err = Train.decode_forward(clones, inputs, batchSize, forward_outputs.encoderOutputs, outputs.decoderOutputs)
+function Train.foward(clones, protos, inputs, outputs)
+	outputs['encoderOutputs'] = {}
+	outputs['decoderOutputs'] = {}
+	Train.encode_forward(clones, protos, inputs, batchSize, outputs['encoderOutputs'])
+	err = Train.decode_forward(clones, inputs, batchSize, outputs['encoderOutputs'], outputs['decoderOutputs'])
 	return err 
 end
 
@@ -112,18 +120,22 @@ function Train.backward(clones, inputs, outputs)
 	Train.encode_backward(clones, inputs, outputs.encoder, prevGrad)
 end
 
-function Train.train_sgd(ds, ds_val, solver_params)
+function Train.train_sgd(protos, ds, ds_val, solver_params)
 	local nBatches_val = math.ceil(ds_val.size/batchSize)
 	local nBatches = math.ceil(ds_train.size/batchSize)
 	-- local lstm, wordEmbed, imageEmbed, classify, criterion = model[0],model[1],model[2],model[3],model[4]
 	local params, grad_params = model_utils.combine_all_parameters(protos.encoder.lstm, protos.encoder.attention, protos.encoder.wordEmbed, protos.encoder.imageEmbed, protos.decoder.lstm, protos.decoder.sample)
 	--clone model so their weight is shared
 	clones = {}
+    clones.encoder = {}
+    clones.decoder = {}
 	clones['encoder']['lstm'] = model_utils.clone_many_times(protos.encoder.lstm, rho+1, not protos.encoder.lstm.parameters)
 	clones['encoder']['wordEmbed'] = model_utils.clone_many_times(protos.encoder.wordEmbed, rho, not protos.encoder.wordEmbed.parameters) -- 1 unit less than lstm
 	clones['encoder']['attention'] = model_utils.clone_many_times(protos.encoder.attention, rho+1, not protos.encoder.attention.parameters) 
-	clones['decoder']['lstm'] = model_utils.clone_many_times(proto.decoder.lstm, rho, not protos.decoder.lstm.parameters)
+	clones['decoder']['lstm'] = model_utils.clone_many_times(protos.decoder.lstm, rho, not protos.decoder.lstm.parameters)
 	clones['decoder']['wordEmbed'] = model_utils.clone_many_times(protos.encoder.wordEmbed, rho, not protos.encoder.wordEmbed.parameters) -- 1 unit less than lstm
+	clones['decoder']['sample'] = model_utils.clone_many_times(protos.decoder.sample, rho, not protos.decoder.sample.parameters) -- 1 unit less than lstm
+	clones['decoder']['criterion'] = model_utils.clone_many_times(protos.decoder.criterion, rho, not protos.decoder.criterion.parameters) -- 1 unit less than lstm
 
 	for epoch = 1, nEpoch do
 		local epoch_err = 0

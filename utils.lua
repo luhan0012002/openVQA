@@ -9,30 +9,30 @@ require 'FastLSTM_padding'
 
 Utils = {}
 
-function Utils.getNextBatch(ds, indices, n, words, fc7, conv4, targets)
-	local start_idx = (n-1) * batchSize+1
+function Utils.getNextBatch(ds, n, inputs)
+    local words, targets = torch.Tensor(), torch.Tensor() 
+    local start_idx = (n-1) * batchSize+1
 	local end_idx = n * batchSize
 	if end_idx > ds.size then
 		end_idx = ds.size
 	end
 
-	local inputs = {}
-	words:index(ds.input, 1, indices:sub(start_idx, end_idx))
-	targets:index(ds.target, 1, indices:sub(start_idx, end_idx))
-	fc7 = getData.getBatchFc7(ds, indices, start_idx, end_idx)
-	conv4 = getData.getBatchConv4(ds, indices, start_idx, end_idx)
+    -- inputs{words, fc7, conv4, targets}  
+    words:index(ds.input, 1, ds.indices:sub(start_idx, end_idx))
+    table.insert(inputs, words:cuda())
+    table.insert(inputs, getData.getBatchFc7(ds, ds.indices, start_idx, end_idx):cuda())
+	local conv4 = getData.getBatchConv4(ds, ds.indices, start_idx, end_idx)
 	conv4 = conv4/torch.max(conv4)
-	table.insert(inputs, words)
-	table.insert(inputs, fc7)
-	table.insert(inputs, conv4)
-	return inputs
+    table.insert(inputs, conv4:cuda())
+	targets:index(ds.target, 1, ds.indices:sub(start_idx, end_idx))
+    table.insert(inputs, targets:cuda())
 end
 
 function Utils.loadData(split, isShuffle)
 	local ds = getData.read(split, rho)
-	ds.input = ds.input:cuda()
-	ds.target = ds.target:cuda()
-	ds.img_id = ds.img_id:cuda()
+	ds.input = ds.input
+	ds.target = ds.target
+	ds.img_id = ds.img_id
 
 	local indices = torch.LongTensor(ds.size)
 	

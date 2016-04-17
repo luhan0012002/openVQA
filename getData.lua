@@ -23,7 +23,7 @@ end
 
 function getData.getBatchFc7(ds, indices, start_idx, end_idx)
     local fc7_path = '../fc7'
-    local img_id = torch.LongTensor()
+    local img_id = torch.Tensor()
     --img_id = img_id:cuda()
     img_id:index(ds.img_id, 1, indices:sub(start_idx, end_idx))
     local fc7 = {}
@@ -40,7 +40,7 @@ end
 
 function getData.getBatchConv4(ds, indices, start_idx, end_idx)               
     local conv_path = '../conv'                           
-    local img_id = torch.LongTensor()                                              
+    local img_id = torch.Tensor()                                              
     --img_id = img_id:cuda()                                                         
     img_id:index(ds.img_id, 1, indices:sub(start_idx, end_idx))                    
     local conv4 = {}                                                               
@@ -95,25 +95,30 @@ function getData.read(split, rho)
     local tableJson = cjson.decode(text)
     local wtoi = cjson.decode(wtoi_text)
     local itow = cjson.decode(itow_text)
-    local ds = {} 
+    local ds = {}
+    --including source(question) and target(answer) 
     local input = {}
     local target = {}
     local img_id = {}
     local question = {}
-    local choices = {}
+    local answer = {}
     local qa_id = {}
     local max_len = 0
     local tmp
+    --index 0 is for padding
+    --index 1 is for <s>
+    --index 2 in for </s>
+
     for i, img in ipairs(tableJson['images']) do
         if img['split'] == split then
             for j, qa_pair in ipairs(img['qa_pairs']) do
-                --source: question
+                --question
                 ques = {}
                 for w in qa_pair['question']:gmatch("[^%s$]+")  do
                     if wtoi[w] == nil then
-                        table.insert(dat, wtoi['UNK'])
+                        table.insert(ques, wtoi['UNK'] + 2)
                     else    
-                        table.insert(dat, wtoi[w])
+                        table.insert(ques, wtoi[w] + 2)
                     end
                     -- cut of if question is longer than rho
                     if #ques >= rho then
@@ -126,22 +131,32 @@ function getData.read(split, rho)
                     table.insert(ques, 1, 0)
                 end
 
-                --target: answer
+                --answer
                 ans = {}
+                --target, different padding, pads 1 as dummy 
+                tar = {}
+                -- insert <s>
+                table.insert(ans, 1)
                 for w in qa_pair['answer']:gmatch("[^%s$]+")  do
                     if wtoi[w] == nil then
-                        table.insert(ans, wtoi['UNK'])
+                        table.insert(tar, wtoi['UNK'] + 2)
+                        table.insert(ans, wtoi['UNK'] + 2)
                     else    
-                        table.insert(ans, wtoi[w])
+                        table.insert(tar, wtoi[w] + 2)
+                        table.insert(ans, wtoi[w] + 2)
                     end
                     -- cut of if answer is longer than rho
                     if #ans >= rho then
                         break
                     end
                 end
+                -- insert </s>
+                table.insert(tar, 2)
                 --padding
                 for i = #ans+1, rho do
-                    table.insert(dat, 1, 0)
+                    table.insert(ans, 1, 0)
+                    --pad 1 as dummy
+                    table.insert(tar, 1, 1) 
                 end
                 table.insert(input, ques)
                 table.insert(target, ans)
@@ -149,22 +164,21 @@ function getData.read(split, rho)
                 tmp, _ = string.gsub(qa_pair['question'], "%s(%p)", "%1")
                 table.insert(question, tmp)
                 tmp, _ = string.gsub(qa_pair['answer'], "%s(%p)", "%1")
-                table.insert(choices, tmp)
+                table.insert(answer, tmp)
                 table.insert(qa_id, tonumber(qa_pair["qa_id"]))
             end
         end
     end
-    ds.input =  torch.LongTensor(input)
-    ds.target =  torch.LongTensor(target)
-    ds.img_id = torch.LongTensor(img_id)
+    ds.input =  torch.Tensor(input)
+    ds.target =  torch.Tensor(target)
+    ds.img_id = torch.Tensor(img_id)
     ds.size = #target
     --if split == 'test' then 
     ds.qa_id = qa_id
     ds.question = question
-    ds.choices = choices
+    ds.answer = answer
     --end
     --print(tablesize(itow))
-    print(ds)
     return ds
 end
 
