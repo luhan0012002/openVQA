@@ -12,9 +12,9 @@ local Train = require 'train'
 local Utils = require 'utils'
 local GenerateAns = require 'generateAns'
 -- hyper-parameters 
-batchSize = 64
+batchSize = 8
 rho = 15 -- sequence length
-hiddenSize = 512
+hiddenSize = 16
 projectSize = 1
 convFeatureSize = 512
 numConvFeature = 196

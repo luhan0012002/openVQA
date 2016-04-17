@@ -40,7 +40,7 @@ function model.buildDecoder()
     local protos = {}
     protos.lstm = LSTM.lstm(hiddenSize, hiddenSize)
     protos.sample = nn.Sequential():add(nn.SelectTable(2)):add(nn.Linear(hiddenSize, nIndex)):add(nn.LogSoftMax())
-    protos.criterion = nn.ClassNLLCriterion()
+    protos.criterion = nn.MaskZeroCriterion(nn.ClassNLLCriterion(), 1)
     return protos
 end
 

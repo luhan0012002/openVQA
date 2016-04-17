@@ -151,14 +151,15 @@ function getData.read(split, rho)
                         break
                     end
                 end
-                -- insert </s>
-                table.insert(tar, 2)
                 --padding
                 for i = #ans+1, rho do
                     table.insert(ans, 1, 0)
                     --pad 1 as dummy
                     table.insert(tar, 1, 1) 
                 end
+		--insert </s>
+		table.insert(tar, 1, 2)
+
                 table.insert(input_q, ques)
                 table.insert(input_a, ans)
                 table.insert(target, tar)
@@ -181,9 +182,6 @@ function getData.read(split, rho)
     ds.question = question
     ds.answer = answer
     --end
-    print(ds.input_q[1])
-    print(ds.input_a[1])
-    print(ds.target[1])
     --print(tablesize(itow))
     return ds
 end
