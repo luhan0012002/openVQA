@@ -97,7 +97,8 @@ function getData.read(split, rho)
     local itow = cjson.decode(itow_text)
     local ds = {}
     --including source(question) and target(answer) 
-    local input = {}
+    local input_q = {}
+    local input_a = {}
     local target = {}
     local img_id = {}
     local question = {}
@@ -158,8 +159,9 @@ function getData.read(split, rho)
                     --pad 1 as dummy
                     table.insert(tar, 1, 1) 
                 end
-                table.insert(input, ques)
-                table.insert(target, ans)
+                table.insert(input_q, ques)
+                table.insert(input_a, ans)
+                table.insert(target, tar)
                 table.insert(img_id, tonumber(img["image_id"]))
                 tmp, _ = string.gsub(qa_pair['question'], "%s(%p)", "%1")
                 table.insert(question, tmp)
@@ -169,7 +171,8 @@ function getData.read(split, rho)
             end
         end
     end
-    ds.input =  torch.Tensor(input)
+    ds.input_q =  torch.Tensor(input_q)
+    ds.input_a = torch.Tensor(input_a)
     ds.target =  torch.Tensor(target)
     ds.img_id = torch.Tensor(img_id)
     ds.size = #target
@@ -178,6 +181,9 @@ function getData.read(split, rho)
     ds.question = question
     ds.answer = answer
     --end
+    print(ds.input_q[1])
+    print(ds.input_a[1])
+    print(ds.target[1])
     --print(tablesize(itow))
     return ds
 end
