@@ -24,6 +24,7 @@ function tablelength(T)
     for _ in pairs(T) do count = count + 1 end
     return count
 end
+
 function Train.encode_forward(clones, protos, inputs, batchSize, encoderOutputs)
 	-- inputs: {q_words, a_words, fc7, conv4, targets}
 	ht_e = {}
@@ -144,7 +145,7 @@ function Train.decode_backward(clones, inputs, enc_outputs, dec_outputs)
 
 end
 
-function Train.foward(clones, protos, inputs, outputs)
+function Train.foward(clones, protos, inputs, outputs, batchSize)
 	outputs['encoderOutputs'] = {}
 	outputs['decoderOutputs'] = {}
 	Train.encode_forward(clones, protos, inputs, batchSize, outputs['encoderOutputs'])

@@ -12,7 +12,7 @@ local Train = require 'train'
 local Utils = require 'utils'
 local GenerateAns = require 'generateAns'
 -- hyper-parameters 
-batchSize = 64
+batchSize = 128
 rho = 15 -- sequence length
 hiddenSize = 512
 projectSize = 1
@@ -22,7 +22,7 @@ nIndex = 5003--5305 -- input words
 nClass = 2 -- output classes
 nEpoch = 100
 fcSize = 4096
-num_sanity_check = 1
+num_sanity_check = 200
 
 local sgd_params = {
     learningRate = 1e-4,
