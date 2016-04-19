@@ -12,20 +12,21 @@ local Train = require 'train'
 local Utils = require 'utils'
 local GenerateAns = require 'generateAns'
 -- hyper-parameters 
-batchSize = 8
+batchSize = 64
 rho = 15 -- sequence length
-hiddenSize = 16
+hiddenSize = 512
 projectSize = 1
 convFeatureSize = 512
 numConvFeature = 196
-nIndex = 5305 -- input words
+nIndex = 5003--5305 -- input words
 nClass = 2 -- output classes
 nEpoch = 100
 fcSize = 4096
 num_sanity_check = 1
 
 local sgd_params = {
-	learningRate = 1e-2
+    learningRate = 1e-4,
+    weightDecay = 1e-3
 }
 
 cmd = torch.CmdLine()

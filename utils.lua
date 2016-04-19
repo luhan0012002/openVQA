@@ -11,6 +11,8 @@ Utils = {}
 
 function Utils.getNextBatch(ds, n, inputs)
     local q_words, a_words, targets = torch.Tensor(), torch.Tensor(), torch.Tensor() 
+    local question = {}
+    local answer = {}
     local start_idx = (n-1) * batchSize+1
 	local end_idx = n * batchSize
 	if end_idx > ds.size then
@@ -28,8 +30,12 @@ function Utils.getNextBatch(ds, n, inputs)
     table.insert(inputs, conv4:cuda())
     targets:index(ds.target, 1, ds.indices:sub(start_idx, end_idx))
     table.insert(inputs, targets:cuda())
-    table.insert(inputs, ds.question[start_idx])
-    table.insert(inputs, ds.answer[start_idx])
+    for i = start_idx, end_idx do
+        table.insert(question, ds.question[i])
+        table.insert(answer, ds.answer[i])
+    end
+    table.insert(inputs, question)
+    table.insert(inputs, answer)
 end
 
 function Utils.loadData(split, isShuffle)

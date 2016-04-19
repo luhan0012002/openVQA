@@ -7,11 +7,23 @@ require 'cunn'
 require 'PrintIdentity'
 require 'FastLSTM_padding'
 
+
+local cjson = require 'cjson'
 local model_utils = require 'model_utils'
 local model = require 'model'
 local Utils = require 'utils'
 local Train = {}
+local itow_path = '../data/idx2word.json'
+local f = io.open(itow_path, "r")
+local itow_text = f:read("*all")
+f:close()
+local itow = cjson.decode(itow_text)
 
+function tablelength(T)
+    local count = 0
+    for _ in pairs(T) do count = count + 1 end
+    return count
+end
 function Train.encode_forward(clones, protos, inputs, batchSize, encoderOutputs)
 	-- inputs: {q_words, a_words, fc7, conv4, targets}
 	ht_e = {}
@@ -37,6 +49,33 @@ function Train.encode_forward(clones, protos, inputs, batchSize, encoderOutputs)
     table.insert(encoderOutputs, imageEmbed_e)
 end
 
+function Train.sample_single_word(distribution)
+    local idx = torch.squeeze(torch.multinomial(distribution, 1))
+    local word
+    if idx > 2 then
+        assert(idx-2 >= 1 and idx-2 <= nIndex)
+        word = itow[tostring(idx-2)]
+    elseif idx == 2 then
+        word = '<eof>'
+    else
+        print('There is bug in sampling...')
+    end
+    return word
+end
+
+function Train.sample_seq(output_d, idx)
+    local seqLen = #output_d
+    local seq = ''
+    for i = 1, seqLen do
+        local word = Train.sample_single_word(output_d[i]:narrow(1, idx, 1))
+        if word == '<eof>' then
+            break
+        end
+        seq = seq..' '..word
+    end
+    return seq
+end
+
 function Train.decode_forward(clones, inputs, batchSize, encoderOutputs, decoderOutputs)
 	-- inputs: {q_words, a_words, fc7, conv4, targets}
 	-- encoderOutputs = {ht_e, ct_e, rt_e, wordEmbed_e, imageEmbed_e}
@@ -46,6 +85,7 @@ function Train.decode_forward(clones, inputs, batchSize, encoderOutputs, decoder
 	lt_d = {}
 	wordEmbed_d = {}
     	loss = {}
+        decode_seq = ''
 	local err = 0
 	table.insert(wordEmbed_d, clones['decoder']['wordEmbed'][1]:forward(inputs[2]:select(2,1)))
 	local tmp = clones['decoder']['lstm'][1]:forward({wordEmbed_d[1], torch.CudaTensor(batchSize, hiddenSize):fill(0), encoderOutputs[1][rho+1]})
@@ -140,7 +180,7 @@ function Train.train_sgd(protos, ds, ds_val, solver_params)
 	for epoch = 1, nEpoch do
 		local epoch_err = 0
 		local sanity_check_err = 0
-		for n = 1, 2 do --nBatches do
+		for n = 1, nBatches do
 			-- feval function for sgd solver
 			local function feval(x)
 				if x ~= params then
@@ -168,7 +208,7 @@ function Train.train_sgd(protos, ds, ds_val, solver_params)
 				return err, grad_params
 			end
 
-			local _, fs = optim.sgd(feval, params, solver_params)
+			local _, fs = optim.rmsprop(feval, params, solver_params)
 			sanity_check_err = sanity_check_err + fs[1]
 			if n % num_sanity_check == 0 then
 				print(string.format("nEpoch %d; %d/%d; err = %f ", epoch, n, nBatches, sanity_check_err/num_sanity_check))
@@ -187,9 +227,9 @@ function Train.train_sgd(protos, ds, ds_val, solver_params)
 			Train.foward(clones, protos, inputs, outputs, batchSize)
 			
 			--print the first question, answer pair 
-			print(inputs[6])
-			print(inputs[7])
-			print(outputs['decoderOutputs'][5])
+			print(inputs[6][1])
+			print(inputs[7][1])
+			print(Train.sample_seq(outputs['decoderOutputs'][5], 1))
 		end
 		print(string.format("nEpoch %d ; NLL val err = %f ", epoch, val_err/(nBatches_val)))
 
