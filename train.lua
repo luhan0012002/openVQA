@@ -140,7 +140,7 @@ function Train.train_sgd(protos, ds, ds_val, solver_params)
 	for epoch = 1, nEpoch do
 		local epoch_err = 0
 		local sanity_check_err = 0
-		for n = 1, nBatches do
+		for n = 1, 2 do --nBatches do
 			-- feval function for sgd solver
 			local function feval(x)
 				if x ~= params then
@@ -149,7 +149,7 @@ function Train.train_sgd(protos, ds, ds_val, solver_params)
 				grad_params:zero()
 
 				-- get mini-batch
-				local inputs = {} -- {words, fc7, conv4, targets}
+				local inputs = {} -- {q_words, a_words, fc7, conv4, targets}
 				--outputs of the forward function will be stored here
 				--outputs.encoder {ht_e, ct_e, rt_e, wordEmbed_e, imageEmbed_e}
 				--outputs.decoder {ht_d, ct_d, wordEmbed_d, loss, outputWordIdx}
@@ -169,7 +169,6 @@ function Train.train_sgd(protos, ds, ds_val, solver_params)
 			end
 
 			local _, fs = optim.sgd(feval, params, solver_params)
-			
 			sanity_check_err = sanity_check_err + fs[1]
 			if n % num_sanity_check == 0 then
 				print(string.format("nEpoch %d; %d/%d; err = %f ", epoch, n, nBatches, sanity_check_err/num_sanity_check))
@@ -179,17 +178,18 @@ function Train.train_sgd(protos, ds, ds_val, solver_params)
 
 		print(string.format("nEpoch %d ; NLL train err = %f ", epoch, epoch_err/(nBatches)))
 		local val_err = 0
-		for n = 1, nBatches_val do
-			local words, fc7, conv4, targets = torch.LongTensor(),torch.LongTensor(),torch.LongTensor(), torch.LongTensor() 
-			words, fc7, conv4, targets = words:cuda(), fc7:cuda(), conv4:cuda(), targets:cuda() 
-			local inputs = Utils.getNextBatch(ds_val, n, words, fc7, conv4, targets)
-			fc7 = inputs[2]
-			conv4 = inputs[3]
-			local batchSize = words:size(1)
-			local totalInput = {fc7, words, conv4}
+		for n = 1, 2 do --nBatches_val do
+			local inputs = {}
+			local outputs = {}
+			Utils.getNextBatch(ds_val, n, inputs)
+			local batchSize = inputs[1]:size(1)
 			-- forward step
-			local totalOutput, err = Train.foward(clones, protos, totalInput, targets, batchSize)
-			val_err = val_err + err
+			Train.foward(clones, protos, inputs, outputs, batchSize)
+			
+			--print the first question, answer pair 
+			print(inputs[6])
+			print(inputs[7])
+			print(outputs['decoderOutputs'][5])
 		end
 		print(string.format("nEpoch %d ; NLL val err = %f ", epoch, val_err/(nBatches_val)))
 

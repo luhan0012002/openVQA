@@ -22,7 +22,7 @@ nIndex = 5305 -- input words
 nClass = 2 -- output classes
 nEpoch = 100
 fcSize = 4096
-num_sanity_check = 300
+num_sanity_check = 1
 
 local sgd_params = {
 	learningRate = 1e-2

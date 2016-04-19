@@ -28,6 +28,8 @@ function Utils.getNextBatch(ds, n, inputs)
     table.insert(inputs, conv4:cuda())
     targets:index(ds.target, 1, ds.indices:sub(start_idx, end_idx))
     table.insert(inputs, targets:cuda())
+    table.insert(inputs, ds.question[start_idx])
+    table.insert(inputs, ds.answer[start_idx])
 end
 
 function Utils.loadData(split, isShuffle)
