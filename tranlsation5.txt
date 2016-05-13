@@ -1,0 +1,1006 @@
+<s> a throbbing pain . </s>
+<s> it 's august fifteenth . </s>
+<s> can you keep my valuables ? </s>
+<s> it 's one hundred dollars per night . </s>
+<s> what kind of <unk> do you have ? </s>
+<s> how can i find the subway bound ? </s>
+<s> where 's boarding ? </s>
+<s> are these these are <unk> these ? </s>
+<s> it 's a <unk> . </s>
+<s> after three . </s>
+<s> where does the ticket stop for <unk> ? </s>
+<s> okay ? </s>
+<s> i 'm very <unk> . </s>
+<s> can i have a <unk> for my coat ? </s>
+<s> how long does it take to get to the station ? </s>
+<s> i 'm sorry , i must be able to manage it to my completely <unk> </s>
+<s> what do you have ? </s>
+<s> it 's not popular , so can you help me . </s>
+<s> are there any interesting events in the center of town ? </s>
+<s> i have a bad headache . </s>
+<s> is it okay to take a taxi ? </s>
+<s> for ten days . </s>
+<s> please give me a <unk> site . </s>
+<s> please show me some <unk> <unk> . </s>
+<s> is this a direct train ? </s>
+<s> did n't eat anything ? </s>
+<s> i would recommend a wine . </s>
+<s> could you have this to <unk> the city on the fifth light , please ? </s>
+<s> i want to stay at a hotel in the downtown area . </s>
+<s> how much is the fare ? </s>
+<s> how can i get on medicine ? </s>
+<s> i 'm not sure . </s>
+<s> i 'll have a pain in the same style . </s>
+<s> put the japanese yen into dollars , please . </s>
+<s> thief . </s>
+<s> the phone <unk> in the room . </s>
+<s> please give me a good place to change , please . </s>
+<s> please give me a <unk> . </s>
+<s> are there any japanese- speaking <unk> ? </s>
+<s> all right , sir . </s>
+<s> is this the <unk> or <unk> ? </s>
+<s> small cheese , please . </s>
+<s> he <unk> his <unk> his <unk> . </s>
+<s> how is the boarding gate ? </s>
+<s> something 's wrong with our <unk> . </s>
+<s> what 's called <unk> ? </s>
+<s> take three times a day . </s>
+<s> where are you going on the map ? </s>
+<s> <unk> of you . </s>
+<s> how much is the train to <unk> to dover by a streetcar <unk> ? </s>
+<s> i 'll be a little more time to go . </s>
+<s> may i ask your name please . </s>
+<s> not now . </s>
+<s> i want to go to <unk> <unk> of soccer <unk> . </s>
+<s> are there any japanese- speaking guide ? </s>
+<s> can you keep my valuables ? </s>
+<s> do n't n't do n't understand ? </s>
+<s> give me a <unk> <unk> . </s>
+<s> how will you be back later . </s>
+<s> our <unk> are lamb with our most of your family . </s>
+<s> do you have any breakfast as for the <unk> , please . </s>
+<s> give me a strong tip . </s>
+<s> tea , it 's a tourist information for jane . </s>
+<s> what 's this ? </s>
+<s> the air- conditioner does n't work . </s>
+<s> at the end of the movie from at the third . </s>
+<s> could you help me ? </s>
+<s> where 's the bicycle rental shop ? </s>
+<s> what beautiful conditions ? </s>
+<s> it 's a nice time to eat raw and have to ask about a movie </s>
+<s> i want to watch a tour of <unk> . </s>
+<s> i 'm a friend of mine . </s>
+<s> how much is the fare ? </s>
+<s> no , we have <unk> . </s>
+<s> where 's the information office ? </s>
+<s> like it , sir . </s>
+<s> um , a little , too , please . </s>
+<s> where 's the ladies ' room ? </s>
+<s> please take this baggage . </s>
+<s> will you <unk> this , too much for your skin ? </s>
+<s> this is a <unk> . </s>
+<s> where 's the <unk> ? </s>
+<s> it looks nice near the elevator , please . </s>
+<s> is there any place where i can get a ticket ? </s>
+<s> how much is the fare ? </s>
+<s> can i ask you to go to the tower of london ? </s>
+<s> souvenirs i menu the <unk> , please . </s>
+<s> that 's the <unk> . </s>
+<s> let me know when the bus gets <unk> <unk> <unk> . </s>
+<s> is this seat occupied ? </s>
+<s> this shirt . </s>
+<s> i 'd like coffee , please . </s>
+<s> hello . </s>
+<s> you have to be in a tip . </s>
+<s> i want to see the <unk> <unk> in the service . </s>
+<s> could you show me that , please ? </s>
+<s> it is the specialty of the <unk> . </s>
+<s> put the japanese yen into dollars , please . </s>
+<s> please do n't take your luggage . </s>
+<s> the wound has <unk> . </s>
+<s> do you have a <unk> <unk> <unk> ? </s>
+<s> i 'd like to make a reservation for a souvenir from japan . </s>
+<s> i want to meet a <unk> <unk> . </s>
+<s> this is for one hundred twenty dollars . </s>
+<s> my reservation number is <unk> one o one for my <unk> . </s>
+<s> i 'd like some <unk> . </s>
+<s> do you have any <unk> watches ? </s>
+<s> please come back to my room . </s>
+<s> i 'd like to ask about it . </s>
+<s> please show me a <unk> <unk> about ten tokens , please . </s>
+<s> show this item . </s>
+<s> will he be back at the same time ? </s>
+<s> give me a <unk> , please . </s>
+<s> where is the gate for the united airlines check- in counter ? </s>
+<s> good to see you . </s>
+<s> i have a large <unk> day . </s>
+<s> i want a <unk> . </s>
+<s> you can use the stomach medicine . </s>
+<s> it off . </s>
+<s> please let me off at the moment . </s>
+<s> i 'll take it now at this . </s>
+<s> but , will n't . </s>
+<s> it 's not <unk> to <unk> . </s>
+<s> i 'm sure i had it from the bus . </s>
+<s> will you tell me the room charge ? </s>
+<s> i want to reconfirm the number . </s>
+<s> please take me to a hospital . </s>
+<s> what was it on ? </s>
+<s> i want to welcome here for a moment . </s>
+<s> please give me a round . </s>
+<s> this is <unk> <unk> . </s>
+<s> it 's too cold . </s>
+<s> do you have my baggage by the opera in japan . </s>
+<s> thank you . </s>
+<s> give me two six two two one two two two two two two two two </s>
+<s> please give me a ticket to the <unk> , please . </s>
+<s> come and come back . </s>
+<s> there 's no appetite . </s>
+<s> the <unk> <unk> is different from the <unk> <unk> . </s>
+<s> do you have a bigger flight ? </s>
+<s> thank you for your <unk> . </s>
+<s> this is not what i mean . </s>
+<s> can you go to me ? </s>
+<s> no dressing , just a <unk> . </s>
+<s> and a shower . </s>
+<s> have you got <unk> 's on board ? </s>
+<s> i want to sit down the same as this pair is also safe . </s>
+<s> to the bus stop . </s>
+<s> do you have a mirror ? </s>
+<s> please call to the toilet . </s>
+<s> <unk> are playing <unk> , i was always <unk> <unk> . </s>
+<s> no way . </s>
+<s> what a great <unk> . </s>
+<s> i 'd like to make a reservation for a souvenir on this flight is leaving </s>
+<s> please change the sheets , please . </s>
+<s> what day is today ? </s>
+<s> emergency , please . </s>
+<s> why can n't they go somewhere ? </s>
+<s> it 's just a <unk> of <unk> and <unk> <unk> and <unk> . </s>
+<s> to <unk> on a <unk> . </s>
+<s> i 've got to checks . </s>
+<s> what time is the next flight to the next city ? </s>
+<s> yes , you can , thanks . </s>
+<s> i want to make a reservation for tokyo , japan . </s>
+<s> of what bus stops from <unk> to the golden gate bridge ? </s>
+<s> where are the <unk> <unk> ? </s>
+<s> please tell me a cup of coffee but please . </s>
+<s> i work for a <unk> company . </s>
+<s> okay . </s>
+<s> i 'd like to make a reservation . </s>
+<s> is this baggage to <unk> avenue ? </s>
+<s> could you take me the bus ? </s>
+<s> that man was <unk> that is very nice to stay . </s>
+<s> where is the first course ? </s>
+<s> is there a <unk> ? </s>
+<s> <unk> <unk> <unk> the <unk> . </s>
+<s> it 's a little too expensive . </s>
+<s> i 'd like to see a japanese house . </s>
+<s> please show me where the nearest pharmacy . </s>
+<s> roast orange , miss <unk> <unk> , " miss <unk> film , mr. <unk> ? </s>
+<s> do you remember here ? </s>
+<s> it 's okay with my family . </s>
+<s> one dollar bills , please . </s>
+<s> where is the nearest <unk> ? </s>
+<s> how many stops are there from here to the hotel ? </s>
+<s> catch it ? </s>
+<s> where 's the end of the museum ? </s>
+<s> what time does the next bus leave ? </s>
+<s> do you have any <unk> size larger ones ? </s>
+<s> show me a size smaller . </s>
+<s> where is the nearest bank ? </s>
+<s> bye . </s>
+<s> do you have any time " <unk> in the city ? </s>
+<s> do you have this ? </s>
+<s> i 've got a room . </s>
+<s> have you seen a little more expensive ? </s>
+<s> which is a small room ? </s>
+<s> where can i get a map of the place ? </s>
+<s> where is the booking office ? </s>
+<s> then , how many <unk> is it on ? </s>
+<s> i 'm going to grey <unk> the <unk> , please . </s>
+<s> call the police and phone number of the contract , please . </s>
+<s> is it possible to go to the museum ? </s>
+<s> my name is <unk> <unk> . </s>
+<s> then , please give me two seats for the evening . </s>
+<s> in counter ? </s>
+<s> the movie is . </s>
+<s> what time do i leave ? </s>
+<s> change the sleeves of my <unk> film for this evening . </s>
+<s> please show me the room every two tomorrow morning . </s>
+<s> thank you . </s>
+<s> it 's not enough to see this <unk> . </s>
+<s> show me some of the <unk> , please . </s>
+<s> will you change to dollars ? </s>
+<s> would you take a picture with you ? </s>
+<s> please give me a <unk> . </s>
+<s> please call a <unk> . </s>
+<s> she did n't stop . </s>
+<s> please give me a discount if i find a camera . </s>
+<s> do you sell <unk> <unk> ? </s>
+<s> it was a <unk> . </s>
+<s> they 're doing a mile </s> limited limited equipment for june . </s>
+<s> yes . </s>
+<s> an careful room charge is ninety- nine dollars . </s>
+<s> most bring your name . </s>
+<s> give me a medical certificate . </s>
+<s> today is the evening today , today 's tonight . </s>
+<s> i 'd like to make a reservation for seven o 'clock . </s>
+<s> break this , please . </s>
+<s> is the baggage claim ? </s>
+<s> he is out now . </s>
+<s> it 's a little bit <unk> <unk> <unk> . </s>
+<s> is there a <unk> near here ? </s>
+<s> what 's your phone number ? </s>
+<s> what time ? </s>
+<s> sign here , please . </s>
+<s> i 'd like it with a daughter . </s>
+<s> a wonderful day . </s>
+<s> please sign here . </s>
+<s> i 'm going to be a <unk> . </s>
+<s> how many times ? </s>
+<s> i would like to make a reservation for a twin for tomorrow . </s>
+<s> it was very good . </s>
+<s> i think the <unk> <unk> <unk> to <unk> . </s>
+<s> this is it all right . </s>
+<s> i had <unk> had a <unk> <unk> . </s>
+<s> no , it does n't . </s>
+<s> how long does it take to get there ? </s>
+<s> do i see the menu again ? </s>
+<s> please be ready to rent a police report , please . </s>
+<s> please call the <unk> . </s>
+<s> check- out , please . </s>
+<s> the coffee is broken . </s>
+<s> where 's the tourist information office ? </s>
+<s> <unk> ha , please . </s>
+<s> the bus stop is going to go . </s>
+<s> not . </s>
+<s> what time does the next bus start ? </s>
+<s> i 'd like to make a call to japan . </s>
+<s> just give me the wrong number . </s>
+<s> where is a subway station near here ? </s>
+<s> how do i use this ? </s>
+<s> can i have a refund , please ? </s>
+<s> i 'd like a room with a spare key . </s>
+<s> what do you have ? </s>
+<s> please do my <unk> suits . </s>
+<s> please show me when i find the immigration card . </s>
+<s> how many days does it take to japan ? </s>
+<s> how about your name . </s>
+<s> you can have it by taxi ? </s>
+<s> which is the beginner ? </s>
+<s> do you have any cheaper rooms ? </s>
+<s> please come and check the right , please . </s>
+<s> please leave the room by taxi . </s>
+<s> these <unk> seems to be tight in this area . </s>
+<s> i 'd like a <unk> . </s>
+<s> please show me about the world . </s>
+<s> i 'm a beginner at that time . </s>
+<s> is there a <unk> bus stop near the station ? </s>
+<s> do n't work right ? </s>
+<s> the <unk> <unk> in the room <unk> . </s>
+<s> yes , you can , thanks . </s>
+<s> is it okay if i take a good idea ? </s>
+<s> that 's all . </s>
+<s> the reserved in room eleven o 'clock . </s>
+<s> is there a restaurant near here ? </s>
+<s> i would like to have a seat in the seat . </s>
+<s> i want to return the car at the hotel . </s>
+<s> to the baggage claim tags . </s>
+<s> what time does the last ticket to the museum ? </s>
+<s> do i need to have a <unk> ? </s>
+<s> it means that <unk> is . </s>
+<s> thank you for waiting . </s>
+<s> i 'd like to order a <unk> . </s>
+<s> which do you want to eat ? </s>
+<s> could you take me to the city center ? </s>
+<s> what 's that ? </s>
+<s> i think it 's <unk> . </s>
+<s> do you have a <unk> <unk> ? </s>
+<s> i 'd like a plastic bag , please . </s>
+<s> is there a discount tour tours ? </s>
+<s> it 's a hotel . </s>
+<s> i want to make a car to go . </s>
+<s> in which shop is that <unk> ? </s>
+<s> right back , please . </s>
+<s> is it okay ? </s>
+<s> when do you have any time ? </s>
+<s> for a <unk> on a shower when out a bowl of the <unk> bar . </s>
+<s> please call to the toilet . </s>
+<s> anything is fine . </s>
+<s> you should i have to call to tip . </s>
+<s> may i take a taxi ? </s>
+<s> this is the most <unk> <unk> <unk> a strange . </s>
+<s> how much is it to a <unk> ? </s>
+<s> do you have a <unk> <unk> with milk <unk> in the town . </s>
+<s> what time does the performance arrive ? </s>
+<s> i 'll go there by taxi . </s>
+<s> do you need a <unk> 's game ? </s>
+<s> where can i rent a city view ? </s>
+<s> i 'll take the room . </s>
+<s> and those are <unk> <unk> . </s>
+<s> what 's for a drink ? </s>
+<s> that 's quite a kimono . </s>
+<s> no , you are in a <unk> room . </s>
+<s> where is the bus stop ? </s>
+<s> where is a movie theater ? </s>
+<s> what 's the <unk> ? </s>
+<s> how to do the destination ? </s>
+<s> are there any other other seats available ? </s>
+<s> is the first <unk> <unk> to the next <unk> ? </s>
+<s> it 's just now , if you do n't spend a week or exchange rate </s>
+<s> my stomach is upset . </s>
+<s> is there a restaurant inside of the department store ? </s>
+<s> <unk> <unk> with <unk> . </s>
+<s> thanks for a while . </s>
+<s> they have to pay for the pay . </s>
+<s> how many minutes is it going to be extra ? </s>
+<s> please exchange this for my camera . </s>
+<s> what do you have for children 's checks ? </s>
+<s> welcome aboard . </s>
+<s> yes , there is . </s>
+<s> i 'm not sick . </s>
+<s> is there any good <unk> for this one ? </s>
+<s> the table is a little expensive . </s>
+<s> i 'm looking for a room . </s>
+<s> i want to take a look at the <unk> . </s>
+<s> certainly , but i do n't have enough money to buy a lot of water </s>
+<s> is there a <unk> hotel ? </s>
+<s> which is the most popular <unk> here ? </s>
+<s> i have n't got it . </s>
+<s> it 's very good today . </s>
+<s> which is your own this evening ? </s>
+<s> it 's a little expensive . </s>
+<s> is this room service ? </s>
+<s> sign here , please . </s>
+<s> i 'm going to <unk> the internet , please . </s>
+<s> is there a tour of the <unk> ? </s>
+<s> where is the <unk> ? </s>
+<s> i <unk> , please . </s>
+<s> it 's too bad . </s>
+<s> where 's the <unk> ? </s>
+<s> how much is a duty- free shop ? </s>
+<s> sugar and milk , please . </s>
+<s> okay , please . </s>
+<s> this is the real <unk> . </s>
+<s> it 's four eighty- one . </s>
+<s> the quality of mine . </s>
+<s> no <unk> . </s>
+<s> where 's the telephone ? </s>
+<s> up the table ? </s>
+<s> please give me a list of the <unk> . </s>
+<s> does it come from the <unk> ? </s>
+<s> a single room is a half day , and people so large person please . </s>
+<s> is this the right of this area ? </s>
+<s> it 's on your right . </s>
+<s> i 'm <unk> . </s>
+<s> how long will it take to get there by taxi ? </s>
+<s> how much is it for a single ? </s>
+<s> the best way . </s>
+<s> it 's too hot . </s>
+<s> may i have a <unk> ? </s>
+<s> okay . </s>
+<s> no , please . </s>
+<s> is the train for <unk> ? </s>
+<s> <unk> , i 'm allergic to medicine . </s>
+<s> which way or the <unk> or <unk> ? </s>
+<s> why do n't you tell me when you get a token , i 'll tell </s>
+<s> the <unk> are very good . </s>
+<s> is there any discount list ? </s>
+<s> for five days . </s>
+<s> can you accept a room ? </s>
+<s> please tell me what i can <unk> . </s>
+<s> i 'd like to make a long- distance call to <unk> . </s>
+<s> can you sell colored tennis this evening ? </s>
+<s> where 's the <unk> ? </s>
+<s> where do you pick up a berth from the box ? </s>
+<s> what time does the movie end ? </s>
+<s> what 's the <unk> ? </s>
+<s> what 's this ? </s>
+<s> what 's the charge for a single room ? </s>
+<s> the <unk> 's " the <unk> . </s>
+<s> i 'll take this with me . </s>
+<s> i have n't got any medicine . </s>
+<s> the <unk> in a place to buy . </s>
+<s> i want to place a tour to <unk> the day . </s>
+<s> uh , no . </s>
+<s> please call the police . </s>
+<s> i 'll have a <unk> to <unk> . </s>
+<s> come on , please . </s>
+<s> may i have the same style as this ? </s>
+<s> where is the gate ? </s>
+<s> i 'd like a double room . </s>
+<s> can i have a table for two . </s>
+<s> that 's a shower . </s>
+<s> where are the <unk> <unk> ? </s>
+<s> bye . </s>
+<s> i see . </s>
+<s> are n't they <unk> in the room . </s>
+<s> where 's the bus to the city ? </s>
+<s> i see . </s>
+<s> where did you get there ? </s>
+<s> do you have a <unk> ? </s>
+<s> what are your business ? </s>
+<s> no . </s>
+<s> could you keep my luggage for me ? </s>
+<s> take this to the taxi stop . </s>
+<s> do you have a <unk> ? </s>
+<s> may i have the water ? </s>
+<s> change this , please . </s>
+<s> oh , is it the way . </s>
+<s> i lost the wrong number . </s>
+<s> i want to buy a shoulder bag . </s>
+<s> where my seat is ? </s>
+<s> a piece of the <unk> of <unk> <unk> . </s>
+<s> yes , that 's right . </s>
+<s> mr. <unk> , sir . </s>
+<s> not so much . </s>
+<s> oh , is it the police . </s>
+<s> what valuable kinds <unk> <unk> against the <unk> ? </s>
+<s> you <unk> the <unk> of the <unk> of the value of the theater tonight . </s>
+<s> a minute , sir . </s>
+<s> it 's very tasty . </s>
+<s> maybe one , how about this one , please . </s>
+<s> where 's the hilton ? </s>
+<s> get a good train . </s>
+<s> is there a <unk> ? </s>
+<s> i did n't drink anything . </s>
+<s> how long is the <unk> ? </s>
+<s> do n't make me where here in the room ? </s>
+<s> is it necessary to take a taxi ? </s>
+<s> where can i buy a credit card ? </s>
+<s> it 's twenty- five o 'clock . </s>
+<s> can i have a reservation for a drink ? </s>
+<s> you can get them , so please do n't mind . </s>
+<s> there 's something wrong with the light of the wrong seat . </s>
+<s> do i have to go to the city ? </s>
+<s> where can i get the bus to the airport ? </s>
+<s> these are popular tours . </s>
+<s> how often do you have a tax refund application ? </s>
+<s> how much is this for how much ? </s>
+<s> please use the telephone . </s>
+<s> what kind of <unk> do you have ? </s>
+<s> it 's a lot of <unk> and a <unk> . </s>
+<s> can i borrow a slice of ham and a <unk> , please ? </s>
+<s> just a moment , please . </s>
+<s> i have to reconfirm from the sun . </s>
+<s> he must be <unk> far on the floor . </s>
+<s> he is very cute . </s>
+<s> whom will you check ? </s>
+<s> this is a <unk> . </s>
+<s> how should i go to <unk> ? </s>
+<s> three . </s>
+<s> thank you , please let me know . </s>
+<s> room number is two three two six seven eight seven eight . </s>
+<s> what 's the name of the place in this place ? </s>
+<s> my name is <unk> sato and coming back to the united states ? </s>
+<s> give me a seat , please . </s>
+<s> it is <unk> <unk> in the <unk> <unk> <unk> <unk> . </s>
+<s> i <unk> your pardon . </s>
+<s> do you have a table for two ? </s>
+<s> it 's been a lot of snow . </s>
+<s> water is fine ? </s>
+<s> the room is a room in room twelve thirty- four . </s>
+<s> where 's the bicycle rental shop ? </s>
+<s> what 's the <unk> ? </s>
+<s> is it okay to leave my car ? </s>
+<s> i think . </s>
+<s> what time ? </s>
+<s> the <unk> <unk> in the united airlines <unk> the line has been a <unk> . </s>
+<s> i 'm going to stay at the airport . </s>
+<s> how much is the fare altogether ? </s>
+<s> please take me to a hospital . </s>
+<s> she 's very cute . </s>
+<s> the actor is really good . </s>
+<s> i 'll have these clothes are ready to me . </s>
+<s> please tell me today 's exchange rate . </s>
+<s> where 's the post office ? </s>
+<s> well then , do if it is n't what i think . </s>
+<s> i like jazz . </s>
+<s> thank you . </s>
+<s> i 'm sure to recommend this hotel . </s>
+<s> come in , please . </s>
+<s> a <unk> report , please . </s>
+<s> are there any flea markets in this area ? </s>
+<s> do you have the same as as <unk> ? </s>
+<s> can i get a seat on flight one for the car ? </s>
+<s> i 'd like to contact the japanese embassy for me . </s>
+<s> where is the <unk> ? </s>
+<s> hang up and water , please . </s>
+<s> how much is the charge for a single room ? </s>
+<s> it 's a <unk> man . </s>
+<s> i 'll have a table by the bus . </s>
+<s> i have a sore throat . </s>
+<s> i was robbed of my bag . </s>
+<s> let me off here . </s>
+<s> are there any special <unk> ? </s>
+<s> it 's a blue overnight ? </s>
+<s> how much is the admission fee charge of admission ? </s>
+<s> i really have something to say it . </s>
+<s> take off . </s>
+<s> i had a good idea to rent a traffic jam , so can i change </s>
+<s> where is the opera house ? </s>
+<s> would you bring me a map , please ? </s>
+<s> do i have to take pictures inside the <unk> ? </s>
+<s> please . </s>
+<s> it 's that to walk . </s>
+<s> please call me back about one hundred fifty dollars a day . </s>
+<s> check- out , please . </s>
+<s> just got them , please . </s>
+<s> what time does the show start ? </s>
+<s> it 's a little loud , please . </s>
+<s> i 'd like to have it out by taxi . </s>
+<s> i 'm coming out of my order . </s>
+<s> you 're welcome . </s>
+<s> my watch is a <unk> . </s>
+<s> my boyfriend . </s>
+<s> good afternoon . </s>
+<s> is there any place where i can get a ticket ? </s>
+<s> i 'd like to make a call to the hotel . </s>
+<s> is it okay to go out for a <unk> ? </s>
+<s> can you recommend a drink this country ? </s>
+<s> will this watch all night ? </s>
+<s> i ordered vegetarian . </s>
+<s> do you have a bigger one ? </s>
+<s> i want to see a musical . </s>
+<s> i 'd like a <unk> . </s>
+<s> please show me the <unk> to the <unk> . </s>
+<s> to hyde park . </s>
+<s> please do i have to give me a map . </s>
+<s> is breakfast it possible to get breakfast served ? </s>
+<s> is there a department store ? </s>
+<s> it 's my friend . </s>
+<s> may i see your ticket ? </s>
+<s> which i should give me ? </s>
+<s> may i have a <unk> ? </s>
+<s> <unk> , is the <unk> of the <unk> of japan . </s>
+<s> yes , please have my hair <unk> . </s>
+<s> how about a <unk> ? </s>
+<s> would you trim my valuables , please ? </s>
+<s> it 's the latest edition of the <unk> that flight stops from here . </s>
+<s> where is the <unk> ? </s>
+<s> please tell him me when he comes out . </s>
+<s> the bill , please . </s>
+<s> what would you like to have for a drink ? </s>
+<s> write the number here . </s>
+<s> will you be <unk> ? </s>
+<s> not so much . </s>
+<s> you gave me the wrong change . </s>
+<s> what 's the time ? </s>
+<s> hello . </s>
+<s> could you tell me some good restaurants with a <unk> , please . </s>
+<s> please give me a receipt . </s>
+<s> i 'd like to go to the states . </s>
+<s> are there any japanese- speaking <unk> ? </s>
+<s> which is she made in room nine o nine . </s>
+<s> can you give me a <unk> ? </s>
+<s> i see . </s>
+<s> can i rent a <unk> <unk> in ? </s>
+<s> i 'd like a <unk> . </s>
+<s> what kind of <unk> do you like ? </s>
+<s> where can i get a ticket ? </s>
+<s> i 'd like to make a hotel reservation . </s>
+<s> how do you eat this ? </s>
+<s> take one pill three times a day . </s>
+<s> i have a receipt . </s>
+<s> i 'll call him again . </s>
+<s> i 'll have a wake up call . </s>
+<s> you should go . </s>
+<s> is it for a week ? </s>
+<s> it 's not more expensive time . </s>
+<s> you 're very happy you asked to help me . </s>
+<s> do you have wine ? </s>
+<s> it 's five dollars . </s>
+<s> make me . </s>
+<s> i 'd like to stay at a hotel for two nights from the airport . </s>
+<s> bye . </s>
+<s> it 's been expensive , sir . </s>
+<s> would you <unk> the charges , please ? </s>
+<s> thank you . </s>
+<s> it 's a lot of snow . </s>
+<s> how this is the service charge ? </s>
+<s> do n't they do n't make out the other buses you have their <unk> to </s>
+<s> i <unk> . </s>
+<s> i 've got a <unk> . </s>
+<s> is there any better to me ? </s>
+<s> how do i get a refund ? </s>
+<s> could you give me another one ? </s>
+<s> my size is ten fifty- five . </s>
+<s> the line was busy . </s>
+<s> what kind of leather is it like sweet ? </s>
+<s> i 'd like to make a reservation . </s>
+<s> can i have a blanket ? </s>
+<s> may i take a message ? </s>
+<s> there are n't any stores games this is n't there . </s>
+<s> i am from japan . </s>
+<s> it he does n't work for him to go . </s>
+<s> my <unk> suddenly came out of the tenth of my friends . </s>
+<s> is it available ? </s>
+<s> it 's very delicious . </s>
+<s> please bring me a pot of coffee . </s>
+<s> please tell me the room again when i checked in . </s>
+<s> to go to the island by home , please . </s>
+<s> any <unk> room ? </s>
+<s> it 's <unk> . </s>
+<s> i 'm in the stomach car . </s>
+<s> you 're a <unk> . </s>
+<s> is there a <unk> ? </s>
+<s> send me a special <unk> to the art museum . </s>
+<s> actually , the date of the house of art is good , but that 's </s>
+<s> double for single , and they fish ? </s>
+<s> this is too <unk> . </s>
+<s> will you bring me some more <unk> ? </s>
+<s> i was <unk> up in my passport , come from my seat ? </s>
+<s> can i have a subway map ? </s>
+<s> what kind of products are <unk> for about sixty dollars ? </s>
+<s> i 'd like a <unk> . </s>
+<s> it 's twenty- five o 'clock . </s>
+<s> okay , sir . </s>
+<s> may i ask you to make it a few minutes behind ? </s>
+<s> is there a <unk> restaurant around here ? </s>
+<s> do you have a <unk> <unk> ? </s>
+<s> please tell me the other size of the post office . </s>
+<s> where 's the seat department ? </s>
+<s> may i have some form , mary he 's very popular this year . </s>
+<s> after three minutes , we 'll have to <unk> and cheap and of <unk> . </s>
+<s> to go to the hospital for a letter . </s>
+<s> how much is it per day ? </s>
+<s> please let me to the hospital , please . </s>
+<s> could you show me the <unk> in the same room . </s>
+<s> they 're <unk> you <unk> . </s>
+<s> okay . </s>
+<s> is it too hot and it 's too bad ? </s>
+<s> write down off here . </s>
+<s> could you have two sets of <unk> <unk> <unk> <unk> ? </s>
+<s> let me take the <unk> road seeing a pain . </s>
+<s> can you recommend a <unk> sitter ? </s>
+<s> will it be all right ? </s>
+<s> i think . </s>
+<s> can i use this set ? </s>
+<s> i did n't order this one . </s>
+<s> can you keep my valuables ? </s>
+<s> i did n't have any problem bag . </s>
+<s> give me two <unk> of two , please . </s>
+<s> i 'd like to have the <unk> <unk> around here and issue a <unk> . </s>
+<s> there are some seats available from somebody to get off the holidays . </s>
+<s> it 'll be thirty minutes . </s>
+<s> okay , would you bring some more time ? </s>
+<s> where is this place ? </s>
+<s> we have a reservation . </s>
+<s> where should i find the gate number ? </s>
+<s> could you call me a cab here , please ? </s>
+<s> it 's about three hours the next gas station . </s>
+<s> you should take a bus to <unk> station , you should get the bus seat </s>
+<s> are n't it for you ? </s>
+<s> <unk> that . </s>
+<s> the <unk> is thirty- five dollars . </s>
+<s> how much is the charge ? </s>
+<s> which do we do have stamps ? </s>
+<s> i 'd like to change to change this <unk> . </s>
+<s> your party <unk> on is the most popular among toilet . </s>
+<s> can i have two tickets for the next tour ? </s>
+<s> i 'd like to make a reservation for a ski class . </s>
+<s> where should i take the bus to the airport ? </s>
+<s> thank you . </s>
+<s> how long will you take more time ? </s>
+<s> i got to get every wrong with you . </s>
+<s> hello . </s>
+<s> can you give me a <unk> ? </s>
+<s> on my <unk> , a high school , and a <unk> <unk> . </s>
+<s> i 've got a temperature . </s>
+<s> please be here right here . </s>
+<s> show me that one , please . </s>
+<s> i 'm missing me your you 're confirmed . </s>
+<s> where is the booking office ? </s>
+<s> i 'm very happy to have the time . </s>
+<s> about what <unk> is on served night . </s>
+<s> is this <unk> <unk> ? </s>
+<s> okay , that 's too big for me to open it . </s>
+<s> to <unk> and the <unk> for this coming at night . </s>
+<s> please roll up by three centimeters . </s>
+<s> well , you are so nice to have a choice of black and watching . </s>
+<s> i have a <unk> . </s>
+<s> what kind of leather would like a diet coke ? </s>
+<s> when i checked out , sir . </s>
+<s> i just left it in the window . </s>
+<s> where good , ? </s>
+<s> how far is it to the station ? </s>
+<s> no , no . </s>
+<s> in boston today , today . </s>
+<s> what time does it cost from london ? </s>
+<s> thank you . </s>
+<s> where 's the <unk> ? </s>
+<s> i want to get a ticket . </s>
+<s> i 'd like to change to change this bill . </s>
+<s> i 'd like a <unk> . </s>
+<s> may i ask him to be a little bit ? </s>
+<s> hello . </s>
+<s> what kind of music do you have ? </s>
+<s> mr. <unk> , mr. <unk> , is n't it ? </s>
+<s> i 'll be back back back . </s>
+<s> where is the baggage claim area ? </s>
+<s> could you send a letter to my room ? </s>
+<s> how long will it take by mistake ? </s>
+<s> i did n't have any other size of many <unk> . </s>
+<s> could you write it down this address , please ? </s>
+<s> have a good trip . </s>
+<s> i have a <unk> . </s>
+<s> how old do you have ? </s>
+<s> i do n't like the color . </s>
+<s> please tell me the phone number of the best of this shop . </s>
+<s> i 'd like a seat in the non- smoking section . </s>
+<s> it 's twenty- five o 'clock . </s>
+<s> please give me a <unk> . </s>
+<s> it 's right here , is n't it ? </s>
+<s> are you interested ? </s>
+<s> is there a train here ? </s>
+<s> please go out to go there by taxi . </s>
+<s> i work for a <unk> . </s>
+<s> how much is the charge for the first class . </s>
+<s> to get to use the bus . </s>
+<s> thank you for the wonderful day . </s>
+<s> i feel nauseous . </s>
+<s> give me some <unk> paper , please . </s>
+<s> it 's a little high . </s>
+<s> i feel chilly . </s>
+<s> <unk> , please . </s>
+<s> which <unk> is popular . </s>
+<s> of course . </s>
+<s> this way a little tight here ? </s>
+<s> do i need to have a room with a bath ? </s>
+<s> are there any sightseeing bus ? </s>
+<s> only one coffee with a bath . </s>
+<s> it 's not popular , so can you help me . </s>
+<s> i 'd like to make a reservation for two at seven o 'clock . </s>
+<s> please give me a <unk> perfume , please . </s>
+<s> i do n't want to leave here . </s>
+<s> i 'm from japan to japan . </s>
+<s> it go down there , then turn right at the second corner . </s>
+<s> please <unk> on the side . </s>
+<s> i can n't see the screen . </s>
+<s> according to this <unk> by a <unk> school , can n't help ? </s>
+<s> is this a <unk> car ? </s>
+<s> do n't you have any tickets for tonight 's <unk> airport at the <unk> tonight </s>
+<s> stop reservation , please . </s>
+<s> it 's there the bus stop . </s>
+<s> i bought me to be in time . </s>
+<s> let 's see what the hotel is coming out about the driver ? </s>
+<s> would you like to have this wake- out separate checks ? </s>
+<s> and i have a <unk> and roast beef and roast beef and breakfast . </s>
+<s> when will be <unk> ? </s>
+<s> well , please . </s>
+<s> i see . </s>
+<s> how much is this charge ? </s>
+<s> please come right away . </s>
+<s> is there a <unk> near here ? </s>
+<s> any messages for me ? </s>
+<s> it was a bad here . </s>
+<s> i was <unk> . </s>
+<s> give me two bottles of whisky and one bottle of brandy , please . </s>
+<s> i do n't have a reservation . </s>
+<s> hello . </s>
+<s> what 's the size size ? </s>
+<s> i 'm having a wonderful time . </s>
+<s> which platform does it arrive in boston ? </s>
+<s> open your bag , please . </s>
+<s> will you take a picture of the museum ? </s>
+<s> press the <unk> <unk> <unk> the <unk> <unk> <unk> <unk> the <unk> on the tenth </s>
+<s> where is the <unk> ? </s>
+<s> do you have any other size of cigarettes ? </s>
+<s> have no longer <unk> without <unk> . </s>
+<s> what time should i be in new york ? </s>
+<s> what kind of show can i get ? </s>
+<s> could you tell me how to get to this place ? </s>
+<s> you should change the bill . </s>
+<s> this area is really good . </s>
+<s> the price is <unk> three ? </s>
+<s> i 'd like some plastic <unk> , please . </s>
+<s> which is my name 's <unk> ? </s>
+<s> i 'll do n't mind . </s>
+<s> you 're calling the wrong change . </s>
+<s> what kind of <unk> does the cost of the <unk> ? </s>
+<s> or will take off about or later ? </s>
+<s> i <unk> . </s>
+<s> could you bring me a doctor ? </s>
+<s> have many my friend did that kind of drinks ? </s>
+<s> would you tell me how many times do you have ? </s>
+<s> these shoes <unk> ? </s>
+<s> my bag was stolen . </s>
+<s> i 'm leaving some other time . </s>
+<s> are there any buses running ? </s>
+<s> all right , sir . </s>
+<s> i 'm from here to get to the hilton hotel . </s>
+<s> is there a dining car on the train ? </s>
+<s> please give me a watch <unk> and oxford . </s>
+<s> i came from <unk> <unk> . </s>
+<s> is there a <unk> ? </s>
+<s> are we <unk> ? </s>
+<s> i have a <unk> and <unk> . </s>
+<s> can i have a large for one ? </s>
+<s> they were at the airport bus stop at the airport counter at six thirty this </s>
+<s> can i wait a while i can visit ? </s>
+<s> okay . </s>
+<s> i 'll take a taxi . </s>
+<s> does it include tax ? </s>
+<s> how many minutes is it going to be extra ? </s>
+<s> just a minute , please . </s>
+<s> i need a copy of the report . </s>
+<s> i 'll call at one thirty . </s>
+<s> this is the overseas . </s>
+<s> do you mean this afternoon ? </s>
+<s> <unk> can <unk> them available in new york . </s>
+<s> do you have medicine for a <unk> <unk> ? </s>
+<s> will you again <unk> later , please ? </s>
+<s> are there any sightseeing bus ? </s>
+<s> can i buy a ticket ? </s>
+<s> i need a <unk> to see a <unk> on the <unk> . </s>
+<s> i 'm looking for a <unk> . </s>
+<s> is there a <unk> period ? </s>
+<s> how can we get to <unk> ? </s>
+<s> what is inside ? </s>
+<s> what kind of model do you have ? </s>
+<s> anything else ? </s>
+<s> i put a little bit too flashy . </s>
+<s> is there a japanese- speaking doctor ? </s>
+<s> please open the trunk . </s>
+<s> i want to try this on this . </s>
+<s> how do you want it ? </s>
+<s> all right , please . </s>
+<s> how much is the cheapest seat ? </s>
+<s> how much is it to me ? </s>
+<s> is there a <unk> ? </s>
+<s> i can n't sleep . </s>
+<s> i 'll check again , please . </s>
+<s> go straight down there is the first time turn right at the second corner . </s>
+<s> is it a <unk> <unk> for a <unk> ? </s>
+<s> i was <unk> your left at the <unk> hotel . </s>
+<s> do i need to have a <unk> ? </s>
+<s> bring me a roll of film , please . </s>
+<s> this is your room with a <unk> switch room . </s>
+<s> check the <unk> , please . </s>
+<s> hello , mr. <unk> ? </s>
+<s> i think the <unk> are <unk> . </s>
+<s> what is the number for the <unk> ? </s>
+<s> please give me this card with me . </s>
+<s> how about today ? </s>
+<s> this is our first aid only one . </s>
+<s> can i have a <unk> drink ? </s>
+<s> does the price include tax ? </s>
+<s> do you have a <unk> ? </s>
+<s> my favorite <unk> is <unk> . </s>
+<s> how many <unk> should you ? </s>
+<s> that recommend works . </s>
+<s> do you speak to mr. ebert ? </s>
+<s> i 'll have a whiskey and wait . </s>
+<s> where 's the <unk> ? </s>
+<s> i 'm going to <unk> . </s>
+<s> the <unk> and set . </s>
+<s> could i have a glass of water ? </s>
+<s> you 're welcome . </s>
+<s> i would like to have a reservation for two at seven tonight . </s>
+<s> i like to stay at a hotel . </s>
+<s> do n't <unk> the <unk> <unk> . </s>
+<s> of you just a <unk> . </s>
+<s> i have n't got it on time . </s>
+<s> as many more days i 'm eating here mine when i came here my purse </s>
+<s> the flight number is nine six eight six . </s>
+<s> i have two <unk> of this flight . </s>
+<s> i want to get a ticket . </s>
+<s> i guess it 's too crowded since i think so . </s>
+<s> i 'm leaving at seven thirty . </s>
+<s> the small amount is <unk> . </s>
+<s> do you have this in any other size ? </s>
+<s> take the air upstairs , if you have one . </s>
+<s> i have two tickets . </s>
+<s> what are the <unk> for the flight . </s>
+<s> i think i left my camera like a souvenir . </s>
+<s> may i get off the door ? </s>
+<s> it 's exactly how to walk about fifteen minutes . </s>
+<s> how about the ? </s>
+<s> you 'll be a very nice of that <unk> . </s>
+<s> do you have a japanese- speaking guide ? </s>
+<s> we have n't gotten it out ? </s>
+<s> can you change my room ? </s>
+<s> where can i get a tennis court ? </s>
+<s> how much would it cost ? </s>
+<s> i 'd like a <unk> . </s>
+<s> nice to see you . </s>
+<s> here you are . </s>
+<s> this is too dark . </s>
+<s> to one hundred dollars per person for yen . </s>
+<s> good evening . </s>
+<s> can you use a pen , please ? </s>
+<s> where can i find a hotel where the ticket ? </s>
+<s> sounds , please have a good rest to speak japanese . </s>
+<s> it 's really nice . </s>
+<s> where is the <unk> or <unk> ? </s>
+<s> what is your favorite place ? </s>
+<s> yes , you can , thanks . </s>
+<s> japanese people <unk> to <unk> . </s>
+<s> here 's your call . </s>
+<s> i 'm still in tokyo . </s>
+<s> just take . </s>
+<s> no , someone but it 's very <unk> . </s>
+<s> as it is available at my <unk> 's twice to <unk> , is n't it </s>
+<s> i do n't understand english well . </s>
+<s> i 'm planning to have a <unk> <unk> . </s>
+<s> my name is <unk> <unk> . </s>
+<s> i 'm going to stay at a hospital . </s>
+<s> where do we meet ? </s>
+<s> can you send a porter to japan by tomorrow card ? </s>
+<s> give me a <unk> of water . </s>
+<s> i run out . </s>
+<s> could you bring me a doctor ? </s>
+<s> my credit card is too hot . </s>
+<s> which is the most popular sport in this town ? </s>
+<s> three people . </s>
+<s> where 's the <unk> ? </s>
+<s> yes , you can . </s>
+<s> how about this time ? </s>
+<s> i 'd like some <unk> . </s>
+<s> show me one , please . </s>
+<s> it 's hard to <unk> with <unk> <unk> was <unk> . </s>
+<s> what is the price of the art in ? </s>
+<s> please fix the <unk> . </s>
+<s> can i have some medicine ? </s>
+<s> do you have the price <unk> ? </s>
+<s> please check and take a taxi . </s>
+<s> why is it there is japanese speaking in the united states ? </s>
+<s> i have a <unk> . </s>
+<s> every ten minutes . </s>
+<s> what 's the <unk> , <unk> <unk> or <unk> ? </s>
+<s> shall i want to leave the table d 'hote ? </s>
+<s> i 'd like a <unk> . </s>
+<s> my bag was stolen . </s>
+<s> first go ahead and tell me the right . </s>
+<s> can you show me the way ? </s>
+<s> come on . </s>
+<s> maybe i 'll call you back later . </s>
+<s> can you give me a discount ? </s>
+<s> i see . </s>
+<s> do you have any free rooms ? </s>
+<s> where is the lost- and- found on map ? </s>
+<s> how many more hours a few more minutes ? </s>
+<s> can i have a <unk> <unk> in this style ? </s>
+<s> i want to take a bus to <unk> airport and a receipt to a good </s>
+<s> how much is the room charge per day ? </s>
+<s> to <unk> . </s>
+<s> who 's that <unk> ? </s>
+<s> let 's have someone else here . </s>
+<s> hello . </s>
+<s> wait a minute . </s>
+<s> i 'll take your picture . </s>
+<s> the amount is <unk> . </s>
+<s> do n't you have some other room service ? </s>
+<s> can i get a <unk> for this watch ? </s>
+<s> could you tell me how to make a reservation for this tour ? </s>
+<s> does this the first train to <unk> ? </s>
+<s> hello to afternoon . </s>
+<s> i 'd like a room with a bath for eighty dollars , please . </s>
+<s> i 'd like to make a reservation for a concert for me at a hotel </s>
+<s> try on air- mail ? </s>
+<s> what do you want to drink ? </s>
+<s> how much is the fare ? </s>
+<s> no . </s>
+<s> where did i get to the museum ? </s>
+<s> how can you ? </s>
+<s> i can n't stand it , please . </s>
+<s> it 's nice , but it was a nice day . </s>
+<s> can i check my suitcase ? </s>
+<s> show me your passport , please . </s>
+<s> a couple of hours , prior to begin the fare . </s>
+<s> this is just about ten o 'clock this building . </s>
+<s> the trip on united airlines flight flight zero one two . </s>
+<s> will be <unk> for a drink ? </s>
+<s> you can recommend a seat next time . </s>
+<s> okay . </s>
+<s> i can n't explain . </s>
+<s> please fill out the form and soon as a reservation . </s>
+<s> i 'm sorry , it 's just a little while i 'm here . </s>
+<s> do you have a vacant seat in front ? </s>
+<s> it seems that the day seems to be a great <unk> . </s>
+<s> could you recommend a good movie ? </s>
+<s> can you give me a <unk> ? </s>
+<s> please your number and the other stay is near my name . </s>
+<s> please write your <unk> up and the rest in small . </s>
+<s> do you have a room . </s>

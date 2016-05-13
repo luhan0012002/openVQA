@@ -4,6 +4,7 @@ require 'getData'
 require 'optim'
 require 'cutorch'
 require 'cunn'
+require 'SoftMaxInf'
 require 'PrintIdentity'
 require 'FastLSTM_padding'
 
@@ -23,11 +24,10 @@ function model.buildEncoder(attMethod)
     end
 
     local protos = {}
-    protos.lstm = LSTM.lstmImageAtt(hiddenSize, hiddenSize, convFeatureSize)
+    protos.lstm = nn.MaskZero(LSTM.lstm(srcEmbSize, hiddenSize), 1):cuda()
     --protos.lstm:maskZero(1)
-    protos.attention = Att.attention(hiddenSize, projectSize, convFeatureSize, numConvFeature)
-    protos.wordEmbed = nn.LookupTableMaskZero(nIndex, hiddenSize)
-    protos.imageEmbed = nn.Linear(fcSize, hiddenSize)
+    --protos.attention = Att.attention(hiddenSize, projectSize, convFeatureSize, numConvFeature)
+    protos.wordEmbed = nn.LookupTableMaskZero(nSrcWords, srcEmbSize):cuda()
   --protos.classify = nn.Sequential():add(nn.SelectTable(2)):add(nn.Linear(hiddenSize, nClass)):add(nn.LogSoftMax()):cuda()
   --protos.criterion = nn.ClassNLLCriterion():cuda()
 
@@ -37,10 +37,15 @@ function model.buildEncoder(attMethod)
 end
 
 function model.buildDecoder()
+    local Att
+    Att = require 'AttGlobal'
     local protos = {}
-    protos.lstm = LSTM.lstm(hiddenSize, hiddenSize)
-    protos.sample = nn.Sequential():add(nn.SelectTable(2)):add(nn.Linear(hiddenSize, nIndex)):add(nn.LogSoftMax())
-    protos.criterion = nn.MaskZeroCriterion(nn.ClassNLLCriterion(), 1)
+    protos.lstm = nn.MaskZero(LSTM.lstm(tgtEmbSize, hiddenSize), 1):cuda()
+    protos.attention = nn.MaskZero(Att.attention(hiddenSize, rho), 1):cuda()
+    protos.wordEmbed = nn.LookupTableMaskZero(nTgtWords, tgtEmbSize):cuda()
+    protos.sample = nn.MaskZero(nn.Sequential():add(nn.Linear(hiddenSize, nTgtWords)):add(nn.LogSoftMax()), 1):cuda()
+    protos.criterion = nn.MaskZeroCriterion(nn.ClassNLLCriterion(), 1):cuda()
+    --protos.criterion = nn.ClassNLLCriterion():cuda()
     return protos
 end
 

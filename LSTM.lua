@@ -9,8 +9,8 @@ function LSTM.lstmImageAtt(input_size, rnn_size, conv_feature_size)
   table.insert(inputs, nn.Identity()())   -- h at time t-1
   table.insert(inputs, nn.Identity()())   -- r at time t
   local input = inputs[1]
-  local prev_c = inputs[2]
-  local prev_h = inputs[3]
+  local prev_h = inputs[2]
+  local prev_c = inputs[3]
   local r = inputs[4]
 
   local i2h = nn.Linear(input_size, 4 * rnn_size)(input)  -- input to hidden
@@ -45,8 +45,8 @@ function LSTM.lstmImageAtt(input_size, rnn_size, conv_feature_size)
 
   -- module outputs
   outputs = {}
-  table.insert(outputs, next_c)
   table.insert(outputs, next_h)
+  table.insert(outputs, next_c)
 
   -- packs the graph into a convenient module with standard API (:forward(), :backward())
   return nn.gModule(inputs, outputs)
@@ -56,11 +56,11 @@ function LSTM.lstm(input_size, rnn_size)
   
   local inputs = {}
   table.insert(inputs, nn.Identity()())   -- network input
-  table.insert(inputs, nn.Identity()())   -- c at time t-1
   table.insert(inputs, nn.Identity()())   -- h at time t-1
+  table.insert(inputs, nn.Identity()())   -- c at time t-1
   local input = inputs[1]
-  local prev_c = inputs[2]
-  local prev_h = inputs[3]
+  local prev_h = inputs[2]
+  local prev_c = inputs[3]
 
   local i2h = nn.Linear(input_size, 4 * rnn_size)(input)  -- input to hidden
   local h2h = nn.Linear(rnn_size, 4 * rnn_size)(prev_h)   -- hidden to hidden
@@ -93,8 +93,8 @@ function LSTM.lstm(input_size, rnn_size)
 
   -- module outputs
   outputs = {}
-  table.insert(outputs, next_c)
   table.insert(outputs, next_h)
+  table.insert(outputs, next_c)
 
   -- packs the graph into a convenient module with standard API (:forward(), :backward())
   return nn.gModule(inputs, outputs)

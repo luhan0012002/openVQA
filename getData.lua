@@ -21,169 +21,93 @@ local function copy(original)
     return copy
 end
 
-function getData.getBatchFc7(ds, indices, start_idx, end_idx)
-    local fc7_path = '../fc7'
-    local img_id = torch.Tensor()
-    --img_id = img_id:cuda()
-    img_id:index(ds.img_id, 1, indices:sub(start_idx, end_idx))
-    local fc7 = {}
-    for i = 1,img_id:size(1) do
-        feature_path = fc7_path..'/v7w_'..tostring(img_id[i])..'.jpg.t7'
-        feature = torch.load(feature_path)
-        feature:resize(feature:size(1),1)
-        table.insert(fc7,feature:t())
-    end
-    local net = nn.JoinTable(1)
-    --net = net:cuda()
-    return net:forward(fc7)
-end
 
-function getData.getBatchConv4(ds, indices, start_idx, end_idx)               
-    local conv_path = '../conv'                           
-    local img_id = torch.Tensor()                                              
-    --img_id = img_id:cuda()                                                         
-    img_id:index(ds.img_id, 1, indices:sub(start_idx, end_idx))                    
-    local conv4 = {}                                                               
-    for i = 1,img_id:size(1) do                                                    
-        feature_path = conv_path..'/v7w_'..tostring(img_id[i])..'.jpg.t7'          
-        feature = torch.load(feature_path)                                         
-        feature = torch.permute(feature, 2, 3, 1)                               
-        --feature = feature:type('torch.FloatTensor')                            
-        --tmp = feature[{1,14,{}}] for checking correctly reshape                  
-        reshapeNet = nn.Sequential()                                               
-        :add(nn.Reshape(196, 512))                                              
-        :add(nn.Reshape(1,196,512))                                             
-        reshapeNet = reshapeNet:cuda()
-        feature = reshapeNet:forward(feature:cuda())
-        --feature = torch.expand(feature, rho, 196, 512)                           
-        --feature = nn.Reshape(1,rho,196,512):forward(feature)                     
-        --print(torch.all(feature[{1,1,14,{}}]:eq(tmp))) for checking correctly reshape
-        table.insert(conv4, feature)                                            
-    end                                                                                                              
-    return nn.JoinTable(1):forward(conv4)                                                                
-end 
-
-function getData.read(split, rho)
-    local data_path
-    if split == 'train' then
-        data_path = '../data/dataset_v7w_telling_tokenized_train.json'    
-        print('loading training data...')
-    elseif split == 'val' then
-        data_path = '../data/dataset_v7w_telling_tokenized_val.json'    
-        print('loading validation data...')
-    elseif split == 'test' then
-        data_path = '../data/dataset_v7w_telling_tokenized_test.json'    
-        print('loading testing data...')
-    else
-        print("wrong split !!!")
-    end
-    print(data_path)
-    local wtoi_path = '../data/word2idx.json'
-    local itow_path = '../data/idx2word.json'
+function getData.read(split, src, rho)
+    local sent_path = './data/' .. split .. '.' .. src
+    local wtoi_path = './vocab/' .. src .. '2idx.json' 
+    local itow_path = './vocab/idx2' .. src .. '.json' 
+   
+    print(wtoi_path)
+    --setting up json
     local cjson = require "cjson"
     local cjson2 = cjson.new()
     local cjson_safe = require "cjson.safe"
-    local f = io.open(data_path, "r")
-    local text = f:read("*all")
+    
+    local f = io.open(sent_path, "r")
+    local corpus = f:read("*all")
     f:close()
+
     local f = io.open(wtoi_path, "r")
     local wtoi_text = f:read("*all")
     f:close()
+
     local f = io.open(itow_path, "r")
     local itow_text = f:read("*all")
     f:close()
-    local tableJson = cjson.decode(text)
+
     local wtoi = cjson.decode(wtoi_text)
     local itow = cjson.decode(itow_text)
-    local ds = {}
-    --including source(question) and target(answer) 
-    local input_q = {}
-    local input_a = {}
-    local target = {}
-    local img_id = {}
-    local question = {}
-    local answer = {}
-    local qa_id = {}
-    local max_len = 0
-    local tmp
-    --index 0 is for padding
-    --index 1 is for <s>
-    --index 2 in for </s>
-
-    for i, img in ipairs(tableJson['images']) do
-        if img['split'] == split then
-            for j, qa_pair in ipairs(img['qa_pairs']) do
-                --question
-                ques = {}
-                for w in qa_pair['question']:gmatch("[^%s$]+")  do
-                    if wtoi[w] == nil then
-                        table.insert(ques, wtoi['UNK'] + 2)
-                    else    
-                        table.insert(ques, wtoi[w] + 2)
-                    end
-                    -- cut of if question is longer than rho
-                    if #ques >= rho then
-                        break
-                    end
+    
+    local sents = {}
+    local sents_next = {}
+    local masks = {}
+    for s in corpus:gmatch("[^\n]+") do
+        local sent = {}
+        local mask = {}
+        local sent_next = {}
+        for w in s:gmatch("[^%s$]+")  do
+            if wtoi[w] == nil then
+                table.insert(sent, wtoi['<unk>'])
+                table.insert(mask, 1)
+                if #sent > 1 then
+                    table.insert(sent_next, wtoi['<unk>'])
                 end
-
-                --padding
-                for i = #ques+1, rho do
-                    table.insert(ques, 1, 0)
+            elseif wtoi[w] == '</s>' then
+                table.insert(sent, 0)
+                table.insert(mask, 0)
+                if #sent > 1 then
+                    table.insert(sent_next, 1)
                 end
-
-                --answer
-                ans = {}
-                --target, different padding, pads 1 as dummy 
-                tar = {}
-                -- insert <s>
-                table.insert(ans, 1)
-                for w in qa_pair['answer']:gmatch("[^%s$]+")  do
-                    if wtoi[w] == nil then
-                        table.insert(tar, wtoi['UNK'] + 2)
-                        table.insert(ans, wtoi['UNK'] + 2)
-                    else    
-                        table.insert(tar, wtoi[w] + 2)
-                        table.insert(ans, wtoi[w] + 2)
-                    end
-                    -- cut of if answer is longer than rho
-                    if #ans >= rho then
-                        break
-                    end
+            else    
+                table.insert(sent, wtoi[w])
+                table.insert(mask, 1)
+                if #sent > 1 then
+                    table.insert(sent_next, wtoi[w])
                 end
-                --padding
-                for i = #ans+1, rho do
-                    table.insert(ans, 1, 0)
-                    --pad 1 as dummy
-                    table.insert(tar, 1, 1) 
-                end
-		--insert </s>
-		table.insert(tar, 1, 2)
-
-                table.insert(input_q, ques)
-                table.insert(input_a, ans)
-                table.insert(target, tar)
-                table.insert(img_id, tonumber(img["image_id"]))
-                tmp, _ = string.gsub(qa_pair['question'], "%s(%p)", "%1")
-                table.insert(question, tmp)
-                tmp, _ = string.gsub(qa_pair['answer'], "%s(%p)", "%1")
-                table.insert(answer, tmp)
-                table.insert(qa_id, tonumber(qa_pair["qa_id"]))
+            end
+            if #sent >= rho then
+                break
             end
         end
+
+        --padding
+        for i = #sent+1, rho do
+            if src == 'tgt' then
+                --pad 1 for tgt, it won't effect the results (just not 0)
+                table.insert(sent, 0)
+                table.insert(mask, 0)
+                table.insert(sent_next, 1)
+            else
+                table.insert(sent, 1 ,0)
+                table.insert(mask, 1, 0)
+                table.insert(sent_next, 1, 1)
+            end
+        end
+        table.insert(sent_next, 1)
+        table.insert(sents, sent)
+        table.insert(sents_next, sent_next)
+        table.insert(masks, mask)
     end
-    ds.input_q =  torch.Tensor(input_q)
-    ds.input_a = torch.Tensor(input_a)
-    ds.target =  torch.Tensor(target)
-    ds.img_id = torch.Tensor(img_id)
-    ds.size = #target
-    --if split == 'test' then 
-    ds.qa_id = qa_id
-    ds.question = question
-    ds.answer = answer
-    --end
-    --print(tablesize(itow))
-    return ds
+    local input = {}
+    sents = torch.DoubleTensor(sents)
+    sents_next = torch.DoubleTensor(sents_next)
+    masks = torch.DoubleTensor(masks)
+    input.sents = sents
+    input.sents_next = sents_next
+    input.masks = masks
+    
+
+    return input
 end
 
 return getData
